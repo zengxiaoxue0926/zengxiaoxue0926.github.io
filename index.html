@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style1.css" />
+		<!-- <link rel="stylesheet" href="css/time.css"> -->
+		<script src="Scripts/jquery-3.3.1.min.js"></script>
+		
+		<style type="text/css">
+			body,
+			html {
+				height: 100%;
+				background: url(images/bgSj.jpg) repeat-y;
+				background-size: 100%;
+				font-family: 微软雅黑;
+				color: #FFFFFF;
+			}
+
+			p,
+			span {
+				font-size: 1.5rem;
+				margin-bottom: 0.5rem;
+			}
+
+			li {
+				list-style: none;
+				cursor: pointer;
+			}
+
+			a {
+				color: #3fecff;
+			}
+			a:hover {
+				color: #3fecff;
+				text-decoration: none;
+			}
+			
+			.content {
+				background: url(images/bgSj.jpg) repeat-y;
+				width: 100%;
+				/* height: 300rem; */
+				background-size: 100%;
+				text-align: center;
+			}
+			/* 头部 */
+			.top {
+				/* background: url(images/lR.png) no-repeat; */
+				width: 100%;
+				height: 8.5rem;
+				background-size: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				color: #3fecff;
+				padding: 0 2rem;
+				
+			}
+
+			.topTitle {
+				text-align: center;
+				font-size: 7.6rem;
+				margin: 0;
+			}
+
+			.dayTime {
+				font-size: 3.5rem;
+			}
+
+			.display {
+				display: block;
+			}
+			.hidden {
+				visibility: hidden;
+			}
+			.center{
+				position:relative;
+				padding-top: 18px;
+			}
+			.center-content{
+				width: 100%;
+				margin-top: 0.25rem;
+				background-size: 100%;
+				padding: 0rem 2.8rem;
+				color: #505050;
+			}
+			.center-content p{
+				font-size: 4.8rem;
+				line-height: 14rem;
+				font-weight: 700;
+				text-align: center;
+			}
+			.center-content p a{
+				color: #FFFFFF;
+			}
+			.center-content p a:hover{
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+			/* .center-font{
+				position:absolute;
+				top: 77%;
+				left: 36%;
+				text-align: center;
+			}
+			.center-font p{
+				font-size: 4.2rem;
+				font-weight: 700;
+				color: #e2e2e2;
+			}
+			 */
+			
+			.AnNiu{
+				border: 2px solid #3fecff;
+				border-radius: 15px;
+				margin: 5rem 0;
+				background-color: #215b9a;
+				padding: 0px 10px;
+			}
+			
+			
+			.descriptionWrapper {
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  color: white;
+			  font-weight: ligher;
+			  margin: 5rem 0 2rem;
+			}
+			.descriptionWrapper .temperatureWrapper {
+			  font-size: 11rem;
+			  padding-right: 10px;
+			}
+			.descriptionWrapper .infoWrapper {
+			  font-size: 4rem;
+			  padding-right: 65px;
+			}
+			.descriptionWrapper .dateWrapper {
+			  text-transform: uppercase;
+			  font-size: 4rem;
+			}
+
+		</style>
+	</head>
+	<body width="100%" height="100%">
+		<div style="padding-top: 18px;"></div>
+				<!--====================标题====================-->
+				<div class="top">
+					<p style="width: 20rem;"></p>
+                    <h3 class="topTitle">
+                        <!--<img src="images/图片1.png" style="width: 10rem;" /><p style="display: inline-block; font-family:方正舒体; font-size: 8.2rem;padding-top: 1.2rem;">锡山水务</p><p style="font-size:3rem; margin-left:100px">Mobile system SCADA</p>-->
+
+                        <img src="images/logo.png" style="width: 50rem;margin-top: 60px;" /><p style="font-size:3rem;margin-top: 5px; margin-left:100px">Mobile system SCADA</p>
+
+
+                    </h3>
+					<p style="width: 20rem;text-align: right;">
+						
+						<!-- <span class="glyphicon glyphicon-off"></span>
+						<span style="position: relative;top: -0.2rem;cursor: pointer;" class="Out">退出</span> -->
+					</p>
+				</div>
+				
+				<!-- <div style="text-align: center;">
+				<canvas id="canvas"></canvas></div> -->
+				
+				<div class="descriptionWrapper">
+				  <div class="temperatureWrapper">
+					<span id="QW" style="font-size: 11rem;"></span>°
+				  </div>
+				  <div class="infoWrapper">
+				    气象: <span id="QX" style="font-size: 4rem;"></span> <br/> 湿度: <span id="SD" style="font-size: 4rem;"></span>%
+				  </div>
+				  <div class="dateWrapper">
+				    <div class="line">
+				      风级：<span id="FJ" style="font-size: 4rem;"></span>级
+				    </div>
+				    <div class="line">
+				      风向： <span id="FX" style="font-size: 4rem;"></span>风
+				    </div>
+				  </div>
+				</div>
+				
+				<div style="margin-top: 1.5rem;">
+					<img src="images/公司示例1.jpg" style="width: 100%;" />
+				</div>
+				
+				<div class="center-content">
+					<p class="AnNiu"><img src="images/公司示例3.jpg" style="width: 20rem;margin-right: 5rem;" / ><a href="PCLogin.html" class="login-lt">龙亭污水处理厂</a></p>
+					<p class="AnNiu"><img src="images/公司示例4.jpg" style="width: 20rem;margin-right: 5rem;" / ><a href="PCLogin_YL.html" class="login-yl">云林污水处理厂</a></p>
+					<p class="AnNiu"><img src="images/公司示例5.jpg" style="width: 20rem;margin-right: 5rem;" / ><a href="PCLogin_ZY.html" class="login-zy">正源检测公司&nbsp;&nbsp;&nbsp;</a></p>
+					
+				</div>
+                <div style="margin: 80px 0;">
+                 <p style="width: 30%;display: inline-block;"><img src="images/ktlogo2.png" style="width: 160px;margin-left: 50px;position: relative;top: -15px;" /></p>  <p style="width: 65%;display: inline-block;text-align: left;font-size: 4rem;">出版单位：锡山水务技术团队</p>
+                </div>
+			
+			<!-- <div class="center-font">
+				<p><a href="ltjj.html">龙亭</a></p>
+				<p>|</p>
+				<p><a href="yljj.html">云林</a></p>
+				<p>|</p>
+				<p><a href="zyjj.html">正源检测(简介)</a></p>
+			</div> -->
+		<!-- <script src="Scripts/digit.js"></script>
+		<script src="Scripts/time.js"></script>	
+		<script src="Scripts/script.js"></script> -->	
+		<script src="Scripts/bootstrap.min.js"></script>
+		<script src="Scripts/echarts.min.js"></script>
+		<script type="text/javascript">
+			
+			$(function() {
+				GetTQ();
+				// TBtime();
+			})
+			function GetTQ() {
+			    $.ajax({
+			        type: "POST",
+			        url: "https://restapi.amap.com/v3/weather/weatherInfo",
+			        async: false,
+			        data: {
+			            "key":"f7f282555acd787066efd445d86705b9",
+			            "city":"320205",
+			            "extensions":"base",
+			            "output":"JSON"
+			        },
+			        success: function (data) {
+			            if (data.status == 0) {
+			                alert("天气数据获取失败！");
+			                //return;
+			            } else {
+			                $("#CS").text("无锡");
+			                $("#QU").text(data.lives[0].city);
+			                $("#QX").text(data.lives[0].weather);
+			                $("#QW").text(data.lives[0].temperature);
+			                $("#FX").text(data.lives[0].winddirection);
+			                $("#FJ").text(data.lives[0].windpower);
+			                $("#SD").text(data.lives[0].humidity);
+			                $("#GX").text(data.lives[0].reporttime);
+			            }
+			        }
+			    });
+			}
+			
+			// $(function() {
+			// 	getTime();
+			// 	// TBtime();
+			// })
+			
+			// function getTime() { //获取时间
+			// 	var date = new Date();
+			
+			// 	var year = date.getFullYear();
+			// 	var month = date.getMonth() + 1;
+			// 	var day = date.getDate();
+			
+			// 	var hour = date.getHours();
+			// 	var minute = date.getMinutes();
+			// 	var second = date.getSeconds();
+			// 	//这样写显示时间在1~9会挤占空间；所以要在1~9的数字前补零;
+			// 	if (hour < 10) {
+			// 		hour = '0' + hour;
+			// 	}
+			// 	if (minute < 10) {
+			// 		minute = '0' + minute;
+			// 	}
+			// 	if (second < 10) {
+			// 		second = '0' + second;
+			// 	}
+			
+			// 	var x = date.getDay(); //获取星期
+			
+			// 	var time = year + '年' + month + '月' + day + '日' + hour + ':' + minute + ':' + second
+			// 	$('.dayTime').html(time);
+			// }
+			
+			
+			
+			//$('.login-yl').click(function() {
+			//	alert('开发中...')
+			//})
+			//$('.login-zy').click(function() {
+			//	alert('开发中...')
+			//})
+			
+		</script>
+
+
+	</body>
+</html>
